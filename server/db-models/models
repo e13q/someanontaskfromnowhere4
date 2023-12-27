@@ -1,0 +1,13 @@
+const DataTypes = require("sequelize");
+const User = require('./user')
+const Token = require('./token')
+
+User.hasOne(Token, {
+foreignKey: {
+    type: DataTypes.UUID
+}
+});
+Token.belongsTo(User);
+
+module.exports = [User, Token];
+ 
